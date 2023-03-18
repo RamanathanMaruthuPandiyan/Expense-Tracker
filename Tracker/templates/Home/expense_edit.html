@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {%load static%}
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no" />
+        <title>Dashboard</title>
+        <link href="{%static 'css/styles.css' %}" rel="stylesheet" />
+        <link href="{%static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand ps-3" href="{%url 'dashboard' %}"><b>EXPENSE TRACKER</b></a>
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fa fa-bars"></i></button>
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="navbar-brand ps-3" style="font-size: medium;">HELLO, {{user.get_username}}</div>
+            </form>
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown"
+                        href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="{%url 'logout' %}">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark"
+                    id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <a class="nav-link" href="{%url 'dashboard' %}">
+                                <div class="sb-nav-link-icon"><i class="fa
+                                        fa-tachometer"></i></div>
+                                Dashboard
+                            </a>
+                            <a class="nav-link" href="{%url 'user-profile' %}">
+                                <div class="sb-nav-link-icon"><i class="fa
+                                        fa-user"></i></div>
+                                Profile
+                            </a>
+                            <a class="nav-link" href="{%url 'add-expenses' %}">
+                                <div class="sb-nav-link-icon"><i class="fas
+                                        fa-money-bill-wave"></i></div>
+                                Add Expenses
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4"><br><br><br>
+                        <h1><b>EDIT EXPENSES</b></h1>
+                        <a type="button" class="btn btn-primary" href="{%url 'dashboard' %}"><i class="fa fa-home"></i></a><br><br>
+                        <div class="card">
+                            <div class="card-header">
+                                <b>Edit: Expenses</b>
+                            </div>
+                            <div class="card-body">
+                                <form method="POST" action="{%url 'expense_update' expenses.id %}">
+                                        {% csrf_token %}
+                                        <fieldset class="row mb-3">
+                                            <legend class="col-form-label col-sm-2 pt-0">Choices</legend>
+                                            <div class="col-sm-10">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="choices" value="{{expenses.Type}}" checked required>
+                                                    <label class="form-check-label" for="gridRadios1">Expenses</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="choices" value="{{expenses.Type}}">
+                                                    <label class="form-check-label" for="gridRadios2">Income</label>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <div class="row mb-3">
+                                            <label for="amount" class="col-sm-2 col-form-label">Amount</label>
+                                            <div class="col-sm-10">
+                                                <input type="number"class="form-control" name="amount" value="{{expenses.Expense_amount}}" required>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="date" class="col-sm-2 col-form-label">Date</label>
+                                            <div class="col-sm-10">
+                                                <input type="date" class="form-control" name="date" value="{{expenses.Date | date:'Y-m-d'}}" required>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="date" class="col-sm-2 col-form-label">Category</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-select" name="category" value="{{expenses.Category}}" required>
+                                                    <option value="Food">Food</option>
+                                                    <option value="Travel">Travel</option>
+                                                    <option value="Necessities">Necessities</option>
+                                                    <option value="Entertainment">Entertainment</option>
+                                                    <option value="Other">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-muted">
+                                    <button type="submit" class = "btn btn-primary">SAVE</button>
+                                </div>
+                            </form>>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Expense Tracker-2022</div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="{%static 'vendor\bootstrap\dist\js\bootstrap.bundle.min.js' %}" crossorigin="anonymous"></script>
+        <script src="{%static 'js/scripts.js' %}"></script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{%static 'node_modules\bootstrap\dist\css\bootstrap.min.css' %}">
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <title>Expense Management System</title>
+        <style>
+            body{
+                background-image: url("http://store-images.s-microsoft.com/image/apps.21669.14224116138934337.7f4f3b9d-086e-4586-b309-1b228c687bc6.e6910a23-266c-497a-b219-8d2e57570e2e");
+                background-size: auto;
+                background-repeat:no-repeat;
+                background-position: center center;
+                background-size: cover;
+                background-attachment: fixed;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand me-2" href="{%url 'home' %}">
+                    <img src="https://cdn-icons-png.flaticon.com/512/7659/7659591.png" height="40" loading="lazy" style="margin-top: -1px;"/>
+                    EXPENSE TRACKER
+                </a>
+                    <div class="d-flex align-items-center">
+                        <a type="button" class="btn btn-primary me-3" href="{%url 'login' %}">
+                            Login
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <footer class="flex-shrink-0 py-4 bg-dark text-white-50 fixed-bottom">
+            <div class="container text-center">
+              <small>Copyright &copy; Expense Tracker-2022</small>
+            </div>
+        </footer>
+        <script src="{%static 'node_modules\bootstrap\dist\js\bootstrap.bundle.min.js' %}"></script>
+    </body>
+</html>
