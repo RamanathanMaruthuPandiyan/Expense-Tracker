@@ -189,7 +189,7 @@ def Register(request):
         Savings=(Save_Per)*int(income)
         Reg_Email = request.POST.get('email')
         Reg_Pass = request.POST.get('password')
-        Re_Reg_Pass=request.POST.get('confirm_password')
+        Re_Reg_Pass=request.POST.get('confirm_password')  
         profile = UserProfile(Savings = Savings,Savings_Percentage=Save_Per,profession=profession,income=income)
         if request.method=='POST':
             try:

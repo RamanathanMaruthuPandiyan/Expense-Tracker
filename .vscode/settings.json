@@ -3,5 +3,7 @@
         "isum",
         "uemail",
         "userregister"
-    ]
+    ],
+    "files.autoSave": "onFocusChange",
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true
 }
