@@ -198,11 +198,11 @@ def Register(request):
                     return render(request,'Authentication/Register.html',{'err':'Username Already Exist!!'})
             except:
                 if len(Reg_User)>8:
-                    return render(request,'Authentication/Register.html',{'err':' Username must be max 8 characters, Please try again'})
+                    return render(request,'Authentication/Register.html',{'Reg_first_name': Reg_first_name, 'Reg_last_name': Reg_last_name,'profession':profession,'income':income,'Save_Per': int(Save_Per * 100),'Reg_Email':Reg_Email,'err':' Username must be max 8 characters, Please try again'})
                 if not Reg_User.isalnum():
-                    return render(request,'Authentication/Register.html',{'err':'Username should only contain letters and numbers, Please try again'})
+                    return render(request,'Authentication/Register.html',{'Reg_first_name': Reg_first_name, 'Reg_last_name': Reg_last_name,'profession':profession,'income':income,'Save_Per': int(Save_Per * 100),'Reg_Email':Reg_Email,'err':'Username should only contain letters or numbers, Please try again'})
                 if Reg_Pass!=Re_Reg_Pass:
-                    return render(request,'Authentication/Register.html',{'err':'Password did not Match'})
+                    return render(request,'Authentication/Register.html',{'Reg_User':Reg_User,'Reg_first_name': Reg_first_name, 'Reg_last_name': Reg_last_name,'profession':profession,'income':income,'Save_Per': int(Save_Per * 100),'Reg_Email':Reg_Email,'err':'Password did not Match'})
         user = User.objects.create_user(Reg_User, Reg_Email, Reg_Pass)
         user.first_name=Reg_first_name
         user.last_name=Reg_last_name

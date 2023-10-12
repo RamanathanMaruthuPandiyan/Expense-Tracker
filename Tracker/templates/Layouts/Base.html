@@ -4,6 +4,7 @@
 <head>
     {% load static %}
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 <!-- Primary Meta Tags -->
 
 <title>
@@ -18,7 +19,6 @@
 <link rel="stylesheet" href="{%static 'node_modules/bootstrap/dist/css/bootstrap.min.css' %}">
 <link type="text/css" href="{% static 'css/Predict.css' %}" rel="stylesheet">
 
-
 </head>
 <body>
     <nav class="navbar  navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -28,10 +28,13 @@
                 EXPENSE TRACKER
             </a>
         </div>
-    </nav><br>
-    {% block content %}{% endblock content %}
+    </nav>
+    {% comment %} <div style=" margin-top: 80vh;"> {% endcomment %}
+        {% block content %}
+        {% endblock content %}
 
-    {% include 'includes/scripts.html' %}
+    {% comment %} <div> {% endcomment %}
+        {% include 'includes/scripts.html' %}
 </body>
 
 </html>

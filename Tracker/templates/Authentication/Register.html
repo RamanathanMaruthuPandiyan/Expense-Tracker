@@ -4,146 +4,175 @@
 
 {% load static%}
 {% block content %}
-    <main>
-        <section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center" style="overflow-x: hidden;">
-            <div class="container" ><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                <p class="text-center">
-                    <b>EXPENSE TRACKER</b>
-                </p>
-                <div class="row justify-content-center form-bg-image" data-background-lg="{%static 'images/signin.svg' %}">
-                    <div class="col-12 d-flex align-items-center justify-content-center">
-                        <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
-                            <div class="text-center text-md-center mb-4 mt-md-0">
-                                <h1 class="mb-0 h3">
-                                    Register
-                                </h1>
-                                <br />
-                                <p>
-                                    {% if err %}
-                                        <span class="text-danger">
-                                            {{ err | safe }}
-                                        </span>
-                                    {% else %}
-                                        Add your credentials
-                                    {% endif %}
-                                </p>
-                            </div>
-                            {% if success %}
-                                <div class="d-grid">
-                                    <a href="{% url 'login' %}" class="btn btn-gray-800">Sign IN</a>
-                                </div>
+<section class="vh-lg-100 mt-5 mt-lg-0 bg-soft d-flex align-items-center" style="overflow-x: hidden;">
+    <div class="container ccon">
+        <p class="text-center ttextc">
+            <b>EXPENSE TRACKER</b>
+        </p>
+        <div class="row justify-content-center form-bg-image" data-background-lg="{%static 'images/signin.svg' %}">
+            <div class="col-12 d-flex align-items-center justify-content-center">
+                <div class="bg-white shadow border-0 rounded border-light p-4 p-lg-5 w-100 fmxw-500">
+                    <div class="text-center text-md-center mb-4 mt-md-0">
+                        <h1 class="mb-0 h3">
+                            Register
+                        </h1>
+                        <br />
+                        <p>
+                            {% if err %}
+                                <span class="text-danger">
+                                    {{ err | safe }}
+                                </span>
                             {% else %}
-                                <form method="post" action="" class="mt-4">
-                                    {% csrf_token %}
-                                    <div class="form-group mb-4">
-                                        <label for="email">Username</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <span class="fas fa-user-circle"></span>
-                                            </span>
-                                            <input type="text" name="User_Name" class="form-control" placeholder="User Name" autofocus required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label for="email">First Name</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <span class="fas fa-user-circle"></span>
-                                            </span>
-                                            <input type="text" name="fname" class="form-control" placeholder="First Name" autofocus required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label for="email">Last Name</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <span class="fas fa-user-circle"></span>
-                                            </span>
-                                            <input type="text" name="lname" class="form-control" placeholder="Last Name" autofocus required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label for="email">Profession</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <span class="fa fa-graduation-cap"></span>
-                                            </span>
-                                            <select class="form-select" name="profession">
-                                                <option selected>Select the profession</option>
-                                                <option value="Employee">Employee</option>
-                                                <option value="Business">Business</option>
-                                                <option value="Student">Student</option>
-                                                <option value="Other">Other</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label for="email">Income</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <span class="fas fa-rupee-sign"></span>
-                                            </span>
-                                            <input type="number" name="income" class="form-control" placeholder="Income" autofocus required>
-                                        </div>
-                                    </div>
-                                    <div class="form-group mb-4">
-                                        <label for="email">Savings</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <span class="fa fa-percent"></span>
-                                            </span>
-                                            <input type="number" name="savings_per" class="form-control" placeholder="Savings Percentage" step="any" autofocus required>
-                                        </div>
-                                    </div>
-
-                                    <!-- Form -->
-                                    <div class="form-group mb-4">
-                                        <label for="email">Your Email</label>
-                                        <div class="input-group">
-                                            <span class="input-group-text" id="basic-addon1">
-                                                <span class="fas fa-envelope"></span>
-                                            </span>
-                                            <input type="email" class="form-control" placeholder="" name="email"  autofocus required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$">
-                                        </div>
-                                    </div>
-                                    <!-- End of Form -->
-                                    <div class="form-group">
-                                        <!-- Form -->
-                                        <div class="form-group mb-4">
-                                            <label for="password">Your Password</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text" id="basic-addon2">
-                                                    <span class="fas fa-unlock-alt"></span>
-                                                </span>
-                                                <input type="password" placeholder="Password" class="form-control" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
-                                                <span style="font-size: xx-small;">Your password must contain at least 8 characters.Your password can't be a commonly used password.Your password can't be entirely numeric.</span>
-                                            </div>
-                                        <div class="form-group mb-4">
-                                            <label for="password">Password Confirmation</label>
-                                            <div class="input-group">
-                                                <span class="input-group-text" id="basic-addon2">
-                                                    <span class="fas fa-unlock-alt"></span>
-                                                </span>
-                                                <input type="password" placeholder="Confirm Password" class="form-control" name="confirm_password" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="d-grid">
-                                        <button type="submit" name="register" class="btn btn-gray-800">Register</button>
-                                    </div>
-                                </form>
-                                <div class="d-flex justify-content-center align-items-center mt-4">
-                                    <span class="fw-normal">
-                                        Already have an account?
-                                        <a href="{% url 'login' %}" class="fw-bold">Login</a>
-                                    </span>
-                                </div>
+                                Add your credentials
                             {% endif %}
-                        </div>
+                        </p>
                     </div>
+                    {% if success %}
+                        <div class="d-grid">
+                            <a href="{% url 'login' %}" class="btn btn-gray-800">Sign IN</a>
+                        </div>
+                    {% else %}
+                        <form method="post" action="" class="mt-4">
+                            {% csrf_token %}
+                            <div class="form-group mb-4">
+                                <label for="email">Username</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <span class="fas fa-user-circle"></span>
+                                    </span>
+                                    <input type="text" name="User_Name" class="form-control" placeholder="User Name" autofocus required value="{{Reg_User}}">
+                                </div>
+                                <span style="font-size: xx-small; display: block; margin-top:5px;">Username must contain atmost 8 characters and it should not be alpha numeric.It can only contain letters or numbers alone.</span>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="email">First Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <span class="fas fa-user-circle"></span>
+                                    </span>
+                                    <input type="text" name="fname" class="form-control" placeholder="First Name" autofocus required value="{{Reg_first_name}}">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="email">Last Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <span class="fas fa-user-circle"></span>
+                                    </span>
+                                    <input type="text" name="lname" class="form-control" placeholder="Last Name" autofocus required value="{{Reg_last_name}}">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="email">Profession</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <span class="fa fa-graduation-cap"></span>
+                                    </span>
+                                    <select class="form-select" name="profession">
+                                        <option value="Employee" {% if profession == "Employee" %}selected{% endif %}>Employee</option>
+                                        <option value="Business" {% if profession == "Business" %}selected{% endif %}>Business</option>
+                                        <option value="Student" {% if profession == "Student" %}selected{% endif %}>Student</option>
+                                        <option value="Other" {% if profession == "Other" %}selected{% endif %}>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="email">Income</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <span class="fas fa-rupee-sign"></span>
+                                    </span>
+                                    <input type="number" name="income" class="form-control" placeholder="Income" autofocus required value="{{income}}">
+                                </div>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="email">Savings</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <span class="fa fa-percent"></span>
+                                    </span>
+                                    <input type="number" name="savings_per" class="form-control" placeholder="Savings Percentage" step="any" autofocus required value="{{Save_Per}}">
+                                </div>
+                            </div>
+
+                            <!-- Form -->
+                            <div class="form-group mb-4">
+                                <label for="email">Your Email</label>
+                                <div class="input-group">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <span class="fas fa-envelope"></span>
+                                    </span>
+                                    <input type="email" class="form-control" placeholder="" name="email"  autofocus required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" value="{{Reg_Email}}">
+                                </div>
+                            </div>
+                            <!-- End of Form -->
+                            <div class="form-group">
+                                <!-- Form -->
+                                <div class="form-group mb-4">
+                                    <label for="password">Your Password</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon2">
+                                            <span class="fas fa-unlock-alt"></span>
+                                        </span>
+                                        <input type="password" placeholder="Password" class="form-control" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}">
+                                        <span style="font-size: xx-small;margin-top:5px;">Your password must contain at least 8 characters.Your password can't be a commonly used password.Your password can't be entirely numeric.</span>
+                                    </div>
+                                <div class="form-group mb-4">
+                                    <label for="password">Password Confirmation</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon2">
+                                            <span class="fas fa-unlock-alt"></span>
+                                        </span>
+                                        <input type="password" placeholder="Confirm Password" class="form-control" name="confirm_password" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" name="register" class="btn btn-gray-800">Register</button>
+                            </div>
+                        </form>
+                        <div class="d-flex justify-content-center align-items-center mt-4">
+                            <span class="fw-normal">
+                                Already have an account?
+                                <a href="{% url 'login' %}" class="fw-bold">Login</a>
+                            </span>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
-        </section>
-    </main>
-
+        </div>
+    </div>
+</section>
+<style>
+    @media (max-width: 768px) {
+        /* Adjust the padding and font size for mobile view */
+        .ccon {
+            padding-top: 5vh; /* Adjust as needed */
+        }
+        .ttextc {
+            font-size: 15pt; /* Adjust as needed */
+        }
+        /* Additional adjustments for form elements can be added here */
+    }
+    @media (max-width: 820px) ,(max-width: 912px) {
+        /* Adjust the padding and font size for mobile view */
+        .ccon {
+            padding-top: 5vh; /* Adjust as needed */
+        }
+        .ttextc {
+            font-size: 20pt; /* Adjust as needed */
+        }
+        /* Additional adjustments for form elements can be added here */
+    }
+    @media (min-width: 1000px){
+        /* Adjust the padding and font size for mobile view */
+        .ccon {
+            padding-top: 50vh; /* Adjust as needed */
+        }
+        .ttextc {
+            font-size: 25pt; /* Adjust as needed */
+        }
+        /* Additional adjustments for form elements can be added here */
+    }
+</style>
 {% endblock content %}

@@ -1,3 +1,4 @@
+{% load custom_filters %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -81,7 +82,7 @@
                                             </tr>
                                             <tr>
                                                 <th>Savings Percentage</th>
-                                                <th>{{ user.userprofile.Savings_Percentage}}</th>
+                                                <th>{{ user.userprofile.Savings_Percentage|multiply_by_100}}</th>
                                             </tr>
                                             <tr>
                                                 <th>Savings</th>
