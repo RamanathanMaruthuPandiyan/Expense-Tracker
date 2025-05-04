@@ -19,7 +19,7 @@ A simple and efficient expense tracking application to help you manage your fina
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/expense-tracker.git
+    git clone https://github.com/RamanathanMaruthuPandiyan/expense-tracker.git
     ```
 2. Navigate to the project directory:
     ```bash
@@ -27,11 +27,11 @@ A simple and efficient expense tracking application to help you manage your fina
     ```
 3. Install dependencies:
     ```bash
-    npm install
+    pip install -R requirements.txt
     ```
 4. Start the development server:
     ```bash
-    npm start
+    python manage.py runserver
     ```
 
 ## Usage
